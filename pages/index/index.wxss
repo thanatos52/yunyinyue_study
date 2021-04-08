@@ -101,3 +101,40 @@
 .topList{
   padding: 20rpx;
 }
+.topListSwiper {
+  height: 400rpx;
+}
+.swiperItem {
+  width: 96%;
+  background-color: #fbfbfb;
+}
+.musicItem {
+  /* 当一个元素设置为flex，其子元素会自动成为block元素*/
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.musicItem image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 6rpx;
+  min-width: 100rpx;
+}
+.musicItem .count{
+  width: 100rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  min-width: 100rpx;
+}
+.musicItem .musicName{
+  height: 100rpx;
+  line-height: 100rpx;
+  max-width: 400rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.swiperItem title {
+  font-size: 26rpx;
+  line-height: 80rpx;
+}

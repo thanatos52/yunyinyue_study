@@ -7,7 +7,8 @@ Page({
    */
   data: {
     bannerList:[],//轮播图数组
-    personalizedList:[]//推荐歌单
+    personalizedList:[],//推荐歌单
+    topList:[],//排行榜数据
   },
 
   /**
@@ -18,10 +19,22 @@ Page({
     this.setData({
       bannerList: bannerData.banners
     })
-    let personalizedData = await request("/personalized")
+    let personalizedData = await request("/personalized",{limit:10})
     this.setData({
       personalizedList: personalizedData.result
     })
+    let index=0
+    let resultArr = []
+    while(index<5){
+      let topListData = await request("/top/list",{idx:index++})
+      let topListItem = {name:topListData.playlist.name,
+      tracks:topListData.playlist.tracks.slice(0,3)}
+      resultArr.push(topListItem)
+      this.setData({
+        topList:resultArr
+      })
+    }
+    
   },
 
   /**
