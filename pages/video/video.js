@@ -1,20 +1,27 @@
 // pages/video/video.js
+import request from '../../utils/request'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    navLabelList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getNavLabelList()
   },
-
+  async getNavLabelList() {
+    let navLabelListData = await request('/video/group/list')
+    //console.log(navLabelListData)
+    this.setData({
+      navLabelList:navLabelListData.data.splice(0,10)
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
